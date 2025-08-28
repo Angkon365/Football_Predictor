@@ -1,7 +1,7 @@
 # Football Match Result Predictor
 
 ## Project Overview
-This project aims to predict the outcomes of football matches (Win/Draw/Loss) by leveraging detailed individual player performance data. Using a comprehensive dataset of player statistics from the top 5 European leagues from 2018 to 2023, the goal is to engineer team-level features to train a robust classification model.
+This project aims to predict the outcomes of football matches (Win/Draw/Loss) by leveraging detailed individual player performance data. Using a comprehensive dataset of player statistics from the top 5 European leagues from 2012 to 2025, the goal is to engineer team-level features to train a robust classification model.
 The final, validated model will be deployed via a simple API and mobile application to provide on-demand match predictions.
 
 ## Data Source
