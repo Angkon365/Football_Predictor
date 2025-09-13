@@ -123,72 +123,74 @@
     </div>
 
     <script>
-        // --- Charting Logic ---
-        const colors = ['#38BDF8', '#34D399', '#F87171', '#FBBF24', '#A78BFA']; // Sky, Green, Red, Amber, Violet
+        // FIX: Wrap all plotting logic in a DOMContentLoaded event listener
+        // This ensures the script only runs after the entire page is loaded.
+        window.addEventListener('DOMContentLoaded', () => {
+            // --- Charting Logic ---
+            const colors = ['#38BDF8', '#34D399', '#F87171', '#FBBF24', '#A78BFA']; // Sky, Green, Red, Amber, Violet
 
-        // Common Layout for Plotly Charts
-        const plotlyLayout = {
-            plot_bgcolor: 'rgba(31, 41, 55, 1)', // bg-gray-800
-            paper_bgcolor: 'rgba(31, 41, 55, 1)',
-            font: { color: '#E5E7EB' }, // text-gray-200
-            xaxis: { gridcolor: '#4B5563' }, // gray-600
-            yaxis: { gridcolor: '#4B5563' },
-            legend: { orientation: 'h', yanchor: 'bottom', y: 1.02, xanchor: 'right', x: 1 }
-        };
+            // Common Layout for Plotly Charts
+            const plotlyLayout = {
+                plot_bgcolor: 'rgba(31, 41, 55, 1)', // bg-gray-800
+                paper_bgcolor: 'rgba(31, 41, 55, 1)',
+                font: { color: '#E5E7EB' }, // text-gray-200
+                xaxis: { gridcolor: '#4B5563' }, // gray-600
+                yaxis: { gridcolor: '#4B5563' },
+                legend: { orientation: 'h', yanchor: 'bottom', y: 1.02, xanchor: 'right', x: 1 }
+            };
 
-        // 1. Match Outcomes Chart
-        const outcomesData = [{
-            x: ['Home Win', 'Draw', 'Away Win'],
-            y: [16710, 8560, 9490],
-            type: 'bar',
-            marker: { color: [colors[0], colors[1], colors[2]] }
-        }];
-        const outcomesLayout = { ...plotlyLayout, title: 'Total Matches Analyzed' };
-        Plotly.newPlot('outcomes-chart', outcomesData, outcomesLayout, {responsive: true});
+            // 1. Match Outcomes Chart
+            const outcomesData = [{
+                x: ['Home Win', 'Draw', 'Away Win'],
+                y: [16710, 8560, 9490],
+                type: 'bar',
+                marker: { color: [colors[0], colors[1], colors[2]] }
+            }];
+            const outcomesLayout = { ...plotlyLayout, title: 'Total Matches Analyzed' };
+            Plotly.newPlot('outcomes-chart', outcomesData, outcomesLayout, {responsive: true});
 
-        // 2. Goals Scored Distribution Chart
-        const homeGoals = Array.from({length: 1000}, () => Math.floor(Math.random() * 4));
-        const awayGoals = Array.from({length: 1000}, () => Math.floor(Math.random() * 3));
+            // 2. Goals Scored Distribution Chart
+            const homeGoals = Array.from({length: 1000}, () => Math.floor(Math.random() * 4));
+            const awayGoals = Array.from({length: 1000}, () => Math.floor(Math.random() * 3));
 
-        const goalsData = [
-            { x: homeGoals, type: 'histogram', name: 'Home Goals', opacity: 0.75, marker: {color: colors[0]} },
-            { x: awayGoals, type: 'histogram', name: 'Away Goals', opacity: 0.75, marker: {color: colors[2]} }
-        ];
-        const goalsLayout = { ...plotlyLayout, title: 'Goals per Match', barmode: 'overlay' };
-        Plotly.newPlot('goals-chart', goalsData, goalsLayout, {responsive: true});
+            const goalsData = [
+                { x: homeGoals, type: 'histogram', name: 'Home Goals', opacity: 0.75, marker: {color: colors[0]} },
+                { x: awayGoals, type: 'histogram', name: 'Away Goals', opacity: 0.75, marker: {color: colors[2]} }
+            ];
+            const goalsLayout = { ...plotlyLayout, title: 'Goals per Match', barmode: 'overlay' };
+            Plotly.newPlot('goals-chart', goalsData, goalsLayout, {responsive: true});
 
-        // 3. Top Features Chart (FIXED)
-        // Data is now explicitly defined in the correct order for plotting.
-        const sortedFeatures = [
-            'home_form_avg_shots_on_target_5', 'away_team_history_goal_ratio', 'h2h_avg_goals_scored',
-            'home_team_history_win_ratio', 'away_form_avg_goals_scored_5', 'home_form_avg_shots_5',
-            'h2h_draw_percentage', 'home_form_avg_goals_scored_10', 'away_form_avg_goals_conceded_10',
-            'h2h_home_win_percentage', 'odds_draw', 'odds_away_win', 'odds_home_win'
-        ];
+            // 3. Top Features Chart
+            const sortedFeatures = [
+                'home_form_avg_shots_on_target_5', 'away_team_history_goal_ratio', 'h2h_avg_goals_scored',
+                'home_team_history_win_ratio', 'away_form_avg_goals_scored_5', 'home_form_avg_shots_5',
+                'h2h_draw_percentage', 'home_form_avg_goals_scored_10', 'away_form_avg_goals_conceded_10',
+                'h2h_home_win_percentage', 'odds_draw', 'odds_away_win', 'odds_home_win'
+            ];
 
-        const sortedImportance = [
-            0.025, 0.026, 0.028, 0.029, 0.03, 0.035, 0.04, 0.045, 0.05, 0.06, 0.18, 0.20, 0.22
-        ];
-        
-        const featureColors = sortedImportance.map(val => val > 0.1 ? colors[2] : colors[0]); // Red for high importance
+            const sortedImportance = [
+                0.025, 0.026, 0.028, 0.029, 0.03, 0.035, 0.04, 0.045, 0.05, 0.06, 0.18, 0.20, 0.22
+            ];
+            
+            const featureColors = sortedImportance.map(val => val > 0.1 ? colors[2] : colors[0]); // Red for high importance
 
-        const featuresData = [{
-            x: sortedImportance,
-            y: sortedFeatures,
-            type: 'bar',
-            orientation: 'h',
-            marker: { color: featureColors }
-        }];
+            const featuresData = [{
+                x: sortedImportance,
+                y: sortedFeatures,
+                type: 'bar',
+                orientation: 'h',
+                marker: { color: featureColors }
+            }];
 
-        const featuresLayout = {
-            ...plotlyLayout,
-            title: 'Mean SHAP Value (Feature Impact)',
-            margin: { l: 250 }
-        };
-        Plotly.newPlot('features-chart', featuresData, featuresLayout, {responsive: true});
+            const featuresLayout = {
+                ...plotlyLayout,
+                title: 'Mean SHAP Value (Feature Impact)',
+                margin: { l: 250 }
+            };
+            Plotly.newPlot('features-chart', featuresData, featuresLayout, {responsive: true});
+        });
     </script>
 
 </body>
 </html>
-
 
