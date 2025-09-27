@@ -1,42 +1,55 @@
-# Football Match Result Predictor 
+# **Football Match Result Predictor **
+
 A machine learning data analysis project that predicts the outcome (Win, Draw, or Loss)and also Both teams to score (BTTS) and Over/Under 2.5 goals of football matches using historical data and a statistical model by leveraging detailed individual player performance data. Using a comprehensive dataset of player statistics from the top 5 European leagues from 2012 to 2025 and 6 other leagues, along with odds integration, the goal is to engineer team-level features to train a robust classification model. This repository contains the data processing, model training notebooks, and an interactive Gradio application intended for local use.
 
-**Live Demo & Dashboard**
+---
+
+## Live Demo & Dashboard
+
 Project Dashboard (HTML): A static dashboard showcasing project visuals and data is live at the link below.
 
 View the Live Dashboard Here
 
 Interactive Predictor App (Gradio): The Gradio app is designed to run locally on your machine. Please follow the instructions in the "Installation and Usage" section below to run it.
 
-** Table of Contents**
-Project Overview
+---
 
-Data Source
+## ** Table of Contents**
 
-Features
+1. Project Overview
 
-Technology Stack
+2. Data Source
 
-Project Workflow
+3. Features
 
-Getting Started: Running the App
+4. Technology Stack
 
-File Structure
+5. Project Workflow
 
-Contact
+6. Getting Started: Running the App
 
-**Project Overview**
+7. File Structure
+
+8. Contact
+
+## **Project Overview**
+
 This project aims to solve the classification problem of predicting football match outcomes. By leveraging historical match data and team statistics, several machine learning models were trained and evaluated to find the most accurate predictor. The final model is served via an interactive web application, allowing users to select two teams and get an instant prediction for an upcoming match.
 
 The primary business case is to provide a data-driven tool for fans, analysts, and betting enthusiasts to gain statistical insights into match probabilities, moving beyond simple intuition.
 
-**Data Source**
+---
+
+## **Data Source**
 Kaggle: Football Player Stats (2018-2023) (https://www.kaggle.com/datasets/davidcariboo/player-scores) (Raw Data)
 https://www.football-data.co.uk/data.php (Odds Data)
 
 Description: This dataset contains granular, player-level performance statistics for every match in the top 5 European leagues (England, Spain, Italy, Germany, and France) from the 2018-2019 season to the 2022-2023 season. Key features include goals, assists, shots, cards, and minutes played for each player in a given match.
 
-**Features**
+---
+
+## **Features**
+
 Data Collection: Gathers historical match data and betting odds.
 
 Data Preprocessing: Cleans and transforms raw data, handling missing values and creating a structured dataset.
@@ -47,7 +60,10 @@ Model Training: Implements and evaluates multiple classification models, includi
 
 Interactive Prediction App: A user-friendly web interface built with Gradio where users can select teams to see the predicted outcome.
 
-**Technology Stack**
+---
+
+## **Technology Stack**
+
 Programming Language: Python
 
 Data Manipulation: Pandas, NumPy
@@ -57,6 +73,8 @@ Machine Learning: Scikit-learn, XGBoost
 Web App Framework: Gradio
 
 Development Environment: Jupyter Notebook
+
+---
 
 ###  Project Workflow
 The project was executed following a structured data science workflow:
@@ -69,6 +87,7 @@ The project was executed following a structured data science workflow:
 7.  **Deployment:** Packaged the final model into a Gradio web application for easy access and interactivity.
 
 ---
+
 **Getting Started: Running the App**
 This project can be run locally or deployed to the web.
 
