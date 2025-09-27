@@ -1,4 +1,4 @@
-# **Football Match Result Predictor **
+# The Gaffer's Edge -Football Match Result Predictor 
 
 A machine learning data analysis project that predicts the outcome (Win, Draw, or Loss)and also Both teams to score (BTTS) and Over/Under 2.5 goals of football matches using historical data and a statistical model by leveraging detailed individual player performance data. Using a comprehensive dataset of player statistics from the top 5 European leagues from 2012 to 2025 and 6 other leagues, along with odds integration, the goal is to engineer team-level features to train a robust classification model. This repository contains the data processing, model training notebooks, and an interactive Gradio application intended for local use.
 
@@ -8,7 +8,7 @@ A machine learning data analysis project that predicts the outcome (Win, Draw, o
 
 Project Dashboard (HTML): A static dashboard showcasing project visuals and data is live at the link below.
 
-View the Live Dashboard Here
+[View the Live Dashboard Here](https://angkon365.github.io/Football_Predictor/)
 
 Interactive Predictor App (Gradio): The Gradio app is designed to run locally on your machine. Please follow the instructions in the "Installation and Usage" section below to run it.
 
