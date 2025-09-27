@@ -88,10 +88,9 @@ The project was executed following a structured data science workflow:
 
 ---
 
-**Getting Started: Running the App**
+## **Getting Started: Running the App**
 This project can be run locally or deployed to the web.
 
----
 
 ###  Installation and Usage
 
@@ -134,13 +133,21 @@ Deploy: Hugging Face will automatically handle the installation and launch the a
 ###  File Structure  
 
 ├── models/                     # Saved model files (.json, .pkl)
+
 ├── notebooks/                  # Jupyter notebooks for EDA and model training
+
 ├── data/                       # Excel-generated files by notebook
+
 ├── python_files/               # All relevant Python files
+
 ├── predictor_app_hybrid.py     # Main Python script for the Gradio app
+
 ├── requirements.txt            # List of required Python packages
+
 ├── Team_Map_Manual.txt         # Manual team mapping txt file for reference
+
 ├── .gitignore                  # Files and folders to ignore
+
 └── README.md                   # Project documentation
 
 ---
