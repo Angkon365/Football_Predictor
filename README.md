@@ -1,4 +1,4 @@
-**Football Match Result Predictor **
+#Football Match Result Predictor 
 A machine learning data analysis project that predicts the outcome (Win, Draw, or Loss)and also Both teams to score (BTTS) and Over/Under 2.5 goals of football matches using historical data and a statistical model by leveraging detailed individual player performance data. Using a comprehensive dataset of player statistics from the top 5 European leagues from 2012 to 2025 and 6 other leagues, along with odds integration, the goal is to engineer team-level features to train a robust classification model. This repository contains the data processing, model training notebooks, and an interactive Gradio application intended for local use.
 
 **Live Demo & Dashboard**
